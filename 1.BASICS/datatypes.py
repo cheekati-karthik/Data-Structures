@@ -1,0 +1,15 @@
+x = "Hello World"
+y=20
+z=20.5
+a= 1 +2j
+b = ["apple", "banana", "cherry"]		
+c = ("apple", "banana", "cherry")
+d = range(6) #range
+e = {"name" : "John", "age" : 36}		
+f = {"apple", "banana", "cherry"}
+g = frozenset({"apple", "banana", "cherry"})	#frozen set	
+h = True		
+i = b"Hello"	#bytes	
+j = bytearray(5)	#bytearray	
+k = memoryview(bytes(5))	#memoryview	
+l = None
