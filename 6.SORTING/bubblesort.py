@@ -1,12 +1,12 @@
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
-        swapped = False  # Track if a swap is made
+        swapped = False  
         for j in range(n - i - 1):
-            if arr[j] > arr[j + 1]:  # Swap if the element is greater than the next
+            if arr[j] > arr[j + 1]:  
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
-        if not swapped:  # If no swaps occurred, array is sorted
+        if not swapped:
             break
     return arr
 
