@@ -1,21 +1,31 @@
-def quick_sort_inplace(arr, low, high):
-    if low < high:
-        pivot_index = partition(arr, low, high)
-        quick_sort_inplace(arr, low, pivot_index - 1)
-        quick_sort_inplace(arr, pivot_index + 1, high)
-
 def partition(arr, low, high):
-    pivot = arr[high]  
-    i = low - 1  
+    pivot = arr[low]
+    i = low
+    j = high
 
-    for j in range(low, high):
-        if arr[j] < pivot:
+    while i < j:
+        while i <= high - 1 and arr[i] <= pivot:
             i += 1
-            arr[i], arr[j] = arr[j], arr[i]  
+        while j >= low + 1 and arr[j] > pivot:
+            j -= 1
+        if i < j:
+            arr[i], arr[j] = arr[j], arr[i]
 
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]  
-    return i + 1  
+    arr[low], arr[j] = arr[j], arr[low]
+    return j
 
-arr = [5, 3, 8, 6, 2, 7, 4, 1]
-quick_sort_inplace(arr, 0, len(arr) - 1)
-print(arr)  
+def qs(arr, low, high):
+    if low < high:
+        p_index = partition(arr, low, high)
+        qs(arr, low, p_index - 1)
+        qs(arr, p_index + 1, high)
+
+def quick_sort(arr):
+    qs(arr, 0, len(arr) - 1)
+    return arr
+
+# Example usage
+arr = [4, 6, 2, 5, 7, 9, 1, 3]
+print("Before Using Quick Sort:", arr)
+arr = quick_sort(arr)
+print("After Using Quick Sort:", arr)
